@@ -1,6 +1,6 @@
 # Release readiness example
 
-This example takes one product brief through three review stages. Each stage is a separate, self-contained HTML file so it can be opened directly, copied, and changed without build tooling.
+This example takes one product brief from structural exploration to working interaction. Both artifacts are self-contained HTML files that can be opened directly, copied, and changed without build tooling.
 
 ## 1. Wireframe
 
@@ -18,17 +18,7 @@ Decisions at this stage include content, grouping, navigation, task order, and m
 | --- | --- | --- |
 | ![Decision-first wireframe](screenshots/wireframe-desktop.png) | ![Evidence-ledger wireframe](screenshots/wireframe-evidence-ledger-desktop.png) | ![Guided-gate wireframe](screenshots/wireframe-guided-gate-desktop.png) |
 
-## 2. Mockup
-
-[Open the mockup](mockup.html)
-
-The mockup develops the decision-first direction into a release-control workspace. It adds a product-specific visual hierarchy, responsive composition, readable state styling, and realistic evidence without adding product behavior.
-
-Decisions at this stage include type, spacing, color, contrast, visual density, and how the desktop composition collapses on mobile. Data flow, permissions, persistence, and transitions remain open.
-
-![Styled release-readiness mockup](screenshots/mockup-desktop.png)
-
-## 3. Prototype
+## 2. Prototype
 
 [Open the prototype](prototype.html)
 
@@ -47,11 +37,10 @@ See the [validation record](validation.md) for browser, interaction, accessibili
 
 ## Clone and adapt
 
-Copy the stage closest to the question you need to answer:
+Copy the artifact closest to the question you need to answer:
 
 ```bash
 cp examples/release-readiness/wireframe.html my-flow.html
-cp examples/release-readiness/mockup.html my-mockup.html
 cp examples/release-readiness/prototype.html my-prototype.html
 ```
 

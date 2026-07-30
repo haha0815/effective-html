@@ -6,7 +6,7 @@ Validated July 29, 2026, on macOS with Google Chrome.
 
 | Check | Result |
 | --- | --- |
-| Desktop rendering | Passed at 1440 × 1000 for all three stages and all three wireframe directions |
+| Desktop rendering | Passed at 1440 × 1000 for both artifacts and all three wireframe directions |
 | Mobile rendering | Passed at 390 × 844 with reduced motion enabled |
 | Horizontal overflow | None at the page level in any tested stage or direction |
 | Console and page errors | None |
@@ -41,12 +41,9 @@ Each skill was invoked in an isolated agent context with the product brief embed
 | --- | --- |
 | `html` | Routed a structural review request to `html-wireframe` by reading the sibling skill, then completed the artifact without inspecting repository examples |
 | `html-wireframe` | Produced three distinct structural directions and passed wide and narrow rendering checks |
-| `html-prototype`, mockup mode | Produced a static release-control mockup with no dead controls and passed wide, narrow, reduced-motion, overflow, console, and contrast checks |
 | `html-prototype`, prototype mode | Produced a working blocked-to-ready flow with passing and failing reruns, loading, validation, dialog focus containment, keyboard support, mobile layout, and a production boundary |
 | `html-plan` | Preserved the four checks, owner, evidence, blocker, sequence, and readiness gate in a responsive HTML plan |
 | `html-diagram` | Produced a responsive release-gate process diagram with failed and passing branches that stop at the production-request boundary |
-
-The first clean mockup run exposed inherited dark text on a dark decision surface. The skill was updated to require computed foreground and background checks on every distinct surface. A fresh invocation then passed, with a lowest measured contrast ratio of 4.58:1.
 
 ## Packaging
 
