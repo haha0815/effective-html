@@ -76,3 +76,7 @@ Use basic click-through behavior when it helps test navigation, disclosure, or a
 Open the result at desktop and mobile widths. Check reading order, wrapping, overflow, focus visibility, and every implemented click path. Confirm that the directions remain structurally distinct at both sizes.
 
 Return the absolute file path, the names and tradeoffs of the directions, and the visual decisions deliberately deferred to a later mockup or prototype.
+
+## Further reading
+
+Read Plannotator's [HTML wireframes and prototypes for coding agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents) for guidance on what to decide at the wireframe stage.

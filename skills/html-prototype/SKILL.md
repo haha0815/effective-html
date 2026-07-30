@@ -91,3 +91,7 @@ Test the artifact at wide desktop and narrow mobile widths. Exercise every model
 Inspect computed foreground and background colors on every distinct surface, especially text that may inherit the body color inside a dark or tinted region. If browser tooling is unavailable, say which visual and interaction checks remain unverified instead of treating source inspection as a substitute.
 
 Return the absolute file path, the fidelity mode, the scenario modeled, the states implemented, and the production behavior deliberately left out.
+
+## Further reading
+
+Read Plannotator's [HTML wireframes and prototypes for coding agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents) for guidance on moving from an approved structure to a mockup or working prototype.
