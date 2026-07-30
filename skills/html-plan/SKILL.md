@@ -1,15 +1,19 @@
 ---
 name: html-plan
-description: Create a self-contained HTML plan that is pragmatic, simple, and visually organized. Use when the user wants a plan page in the effective HTML style, wants the writing kept close to what they gave you, or wants the grammar cleaned up without turning it into a whole bigger thing.
-disable-model-invocation: true
+description: Legacy compatibility command for users who explicitly invoke html-plan. Use when the user types html-plan; complete the request as a pragmatic self-contained HTML plan, but use the html skill for new natural-language plan requests.
 ---
 
-# HTML Plan
+# HTML Plan (legacy alias)
 
-Review the files throughout `references/html-effectiveness/`.
+This command remains temporarily so existing workflows do not break. Complete the user's request; do not stop merely to tell them the command moved.
 
-After reviewing them, create an HTML file for the plan in a similar style.
+If the `html` skill is installed, invoke it for this request and follow its Document guidance with high fidelity to the user's material. Otherwise:
 
-Keep it pragmatic and simple.
+- Preserve the user's scope, ordering, commitments, and terminology unless they ask for broader synthesis.
+- Improve grammar and structure without inflating the plan into a strategy document.
+- Match the user's or project's visual language; do not apply a default house style.
+- Use hierarchy, grouping, status, ownership, dependencies, and sequence only where the plan actually contains them.
+- Keep the design workmanlike unless the brief earns more treatment.
+- Deliver one responsive, accessible, self-contained HTML file and verify it at wide and narrow viewports.
 
-Always include dark mode: hand-rolled CSS variables on `:root` / `html.dark`, a small theme toggle button, `localStorage` persistence, and an apply-before-paint script in `<head>` (default to `prefers-color-scheme`).
+After completing the artifact, mention that future requests can use `$html`.

@@ -4,9 +4,15 @@
   "groupings": [
     {
       "title": "Effective HTML",
-      "description": "Skills for generating pragmatic HTML diagrams and plans.",
+      "description": "One adaptive skill for self-contained HTML artifacts, diagrams, plans, tools, and data.",
       "skills": [
-        "html",
+        "html"
+      ]
+    },
+    {
+      "title": "Legacy aliases",
+      "description": "Temporary compatibility commands; use html for new work.",
+      "skills": [
         "html-diagram",
         "html-plan"
       ]

@@ -1,28 +1,23 @@
-## HTML skills for pragmatic visual artifacts
+# Effective HTML
 
+One adaptive skill for creating self-contained HTML artifacts: reports, plans, explainers, landing pages, presentations, prototypes, dashboards, tools, diagrams, and data visualizations.
 
+`$html` is opinionated about care, clarity, accessibility, and verification. It is deliberately not opinionated about one palette, typography stack, layout, or diagram style. It follows the user's direction first, then the project's existing design language, then the subject itself.
 
 https://github.com/user-attachments/assets/24306977-7f30-44c9-9bff-55f901d557b0
 
-_**Note:** The diagram was made by `Fable 5`, I will create more fable 5 artifacts and add them to the skill folder for smaller models to distill._
-[example demo](https://x.com/backnotprop/status/2065479594023829619?s=20)
+_The diagram above was made by Fable 5. It demonstrates capability, not a visual template that every artifact should copy._
 
-
-Focused skills for generating self-contained HTML deliverables with a strong visual bias:
-
-- `html`: an HTML file for whatever you're describing, in the effective HTML style
-- `html-diagram`: architecture, stack, and systems understanding rendered as full-screen HTML diagrams with high-quality SVG
-- `html-plan`: HTML plan pages in the effective HTML style
+[Watch the example](https://x.com/backnotprop/status/2065479594023829619?s=20)
 
 <p align="center">
   <a href="https://github.com/backnotprop/plannotator">
-    <img src="./star-plannotator.svg" width="340" alt="like this? star Plannotator">
+    <img src="./star-plannotator.svg" width="340" alt="Like this? Star Plannotator">
   </a>
 </p>
 <p align="center">
-Render and annotate your HTML with Plannotator (optional): https://github.com/backnotprop/plannotator
+Render and annotate your HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a> (optional).
 </p>
-
 
 ## Install
 
@@ -30,24 +25,23 @@ Render and annotate your HTML with Plannotator (optional): https://github.com/ba
 npx skills add plannotator/effective-html
 ```
 
-List available skills first:
+List the available entries:
 
 ```bash
 npx skills add plannotator/effective-html --list
 ```
 
-Install a specific skill:
+Install only the canonical skill:
 
 ```bash
-npx skills add plannotator/effective-html --skill html-diagram
-npx skills add plannotator/effective-html --skill html-plan
+npx skills add plannotator/effective-html --skill html
 ```
+
+Then ask naturally for an HTML artifact or invoke `$html` directly.
 
 ### As a Claude Code plugin
 
-This repo is also a [plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces). Add it and install:
-
-```
+```text
 /plugin marketplace add plannotator/effective-html
 /plugin install plannotator-effective-html@effective-html
 ```
@@ -59,25 +53,47 @@ codex plugin marketplace add plannotator/effective-html
 codex plugin add plannotator-effective-html@effective-html
 ```
 
+## How `$html` works
+
+The skill first determines the audience, purpose, form, visual register, fidelity to the input, and useful interaction. It then loads only the guidance needed for the artifact:
+
+- Documents and presentations
+- Interfaces and tools
+- Diagrams, architecture, and sequences
+- Charts and data
+- Creative direction when the user or project has not already supplied one
+
+The references teach techniques and decision-making, not a house style.
+
+## Migration from the old commands
+
+`html-diagram` and `html-plan` remain as temporary compatibility commands so existing installations and prompts continue to work. They are no longer separate design systems. New work should use `$html`; the aliases will remain through the `0.2.x` transition and may be removed in a later major release.
+
+## Repository shape
+
+```text
+skills/
+├── html/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
+│       ├── creative-direction.md
+│       ├── documents-and-presentations.md
+│       ├── interfaces.md
+│       ├── diagrams.md
+│       └── charts-and-data.md
+├── html-diagram/   # temporary compatibility alias
+└── html-plan/      # temporary compatibility alias
+```
+
+This project was inspired by Thariq Shihipar's [The unreasonable effectiveness of HTML](https://thariqs.github.io/html-effectiveness). The original example gallery is no longer bundled or used as a default visual identity.
+
 <br/>
 <p align="center">
   <a href="https://github.com/plannotator/tot">
-    <img src="./use-tot.svg" width="300" alt="share your HTML? use tot">
+    <img src="./use-tot.svg" width="300" alt="Share your HTML with tot">
   </a>
 </p>
-
 <p align="center">
-Create instant share links for your HTML files (optional): https://github.com/plannotator/tot<br/> HTML from video: https://tot.page/0CW7xV96XMxnalrzwRl4eQ
+Create instant share links for your HTML files with <a href="https://github.com/plannotator/tot">tot</a> (optional).
 </p>
-
-## Skills
-
-- `html` - Create an HTML file for whatever the user is describing, matching the effective HTML references.
-- `html-diagram` - Build full-screen HTML architecture and stack diagrams with SVG-first presentation and minimal prose.
-- `html-plan` - HTML plan pages in the effective HTML style.
-
-## Repository Shape
-
-Skills live under `skills/<skill-name>/SKILL.md`. Each skill also bundles a copy of the `html-effectiveness` example corpus under `references/html-effectiveness/` so the examples stay local to the skill.
-
-Credit: this repo bundles and uses the `html-effectiveness` examples by Thariq Shihipar: https://thariqs.github.io/html-effectiveness

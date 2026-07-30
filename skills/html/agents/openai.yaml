@@ -1,7 +1,7 @@
 interface:
   display_name: "HTML"
-  short_description: "Create effective standalone HTML artifacts"
-  default_prompt: "Use $html to create a polished standalone HTML artifact."
+  short_description: "Create adaptive standalone HTML artifacts"
+  default_prompt: "Use $html to create a self-contained HTML artifact shaped by this brief and project."
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

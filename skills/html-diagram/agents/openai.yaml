@@ -1,7 +1,7 @@
 interface:
-  display_name: "HTML Diagram"
-  short_description: "Create effective standalone HTML diagrams"
-  default_prompt: "Use $html-diagram to create a polished architecture diagram."
+  display_name: "HTML Diagram (Legacy)"
+  short_description: "Compatibility alias for HTML diagrams"
+  default_prompt: "Use $html-diagram to complete this legacy diagram request, then recommend $html for future work."
 
 policy:
   allow_implicit_invocation: false

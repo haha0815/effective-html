@@ -1,7 +1,7 @@
 {
   "name": "plannotator-effective-html",
-  "version": "0.1.0",
-  "description": "HTML skills for pragmatic visual artifacts — html, html-diagram, and html-plan.",
+  "version": "0.2.0",
+  "description": "One adaptive skill for self-contained HTML artifacts, diagrams, plans, tools, and data visualizations.",
   "author": {
     "name": "plannotator",
     "url": "https://github.com/plannotator"
@@ -13,15 +13,13 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Effective HTML",
-    "shortDescription": "Elegant, self-contained HTML plans, diagrams, and artifacts",
-    "longDescription": "Create polished, self-contained HTML artifacts, full-screen architecture diagrams, and pragmatic plan pages from local reference examples.",
+    "shortDescription": "Adaptive, self-contained HTML artifacts",
+    "longDescription": "Create self-contained HTML artifacts whose visual direction follows the user's brief, project, and subject, with focused guidance for documents, interfaces, diagrams, sequences, charts, and data.",
     "developerName": "plannotator",
     "category": "Productivity",
     "capabilities": ["Write"],
     "defaultPrompt": [
-      "Create an effective HTML plan.",
-      "Create an effective HTML diagram.",
-      "Create an effective HTML artifact."
+      "Use $html to create a self-contained HTML artifact shaped by this brief and project."
     ]
   }
 }
