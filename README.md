@@ -1,73 +1,87 @@
 # Effective HTML
 
-One adaptive skill for creating self-contained HTML artifacts: reports, plans, explainers, landing pages, presentations, prototypes, dashboards, tools, diagrams, and data visualizations.
+Five focused skills for creating useful, self-contained HTML artifacts, from low-fidelity wireframes to working interactive prototypes.
 
-`$html` is opinionated about care, clarity, accessibility, and verification. It is deliberately not opinionated about one palette, typography stack, layout, or diagram style. It follows the user's direction first, then the project's existing design language, then the subject itself.
+The collection is opinionated about clarity, accessibility, and verification. It is not tied to one palette, typography stack, component system, or diagram style. Each artifact follows the user's direction first, then the project's established language, then the subject itself.
 
-https://github.com/user-attachments/assets/24306977-7f30-44c9-9bff-55f901d557b0
+## Choose a skill
 
-_The diagram above was made by Fable 5. It demonstrates capability, not a visual template that every artifact should copy._
+| Skill | Use it for |
+| --- | --- |
+| [`html`](skills/html/SKILL.md) | Broad HTML requests, mixed artifacts, reports, explainers, presentations, landing pages, tools, and routing to a specialist |
+| [`html-wireframe`](skills/html-wireframe/SKILL.md) | Low-fidelity layout directions that test content, hierarchy, navigation, flows, and responsive structure |
+| [`html-prototype`](skills/html-prototype/SKILL.md) | Styled mockups and working prototypes with realistic states, interaction, keyboard support, and responsive behavior |
+| [`html-plan`](skills/html-plan/SKILL.md) | Plans, roadmaps, rollouts, and implementation sequences that preserve source commitments |
+| [`html-diagram`](skills/html-diagram/SKILL.md) | Architecture, sequence, process, state, hierarchy, timeline, and system diagrams |
 
-[Watch the example](https://x.com/backnotprop/status/2065479594023829619?s=20)
+A mockup is a noninteractive fidelity mode inside `html-prototype`. There is no separate `html-mockup` skill.
 
-<p align="center">
-  <a href="https://github.com/backnotprop/plannotator">
-    <img src="./star-plannotator.svg" width="340" alt="Like this? Star Plannotator">
-  </a>
-</p>
-<p align="center">
-Render and annotate your HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a> (optional).
-</p>
+## One brief, three stages
+
+The [release-readiness example](examples/release-readiness/README.md) carries the same product brief through structure, visual fidelity, and interaction. Every stage is preserved as a standalone HTML file that opens without build tooling.
+
+| Wireframe | Mockup | Prototype |
+| --- | --- | --- |
+| [![Low-fidelity release wireframe](examples/release-readiness/screenshots/wireframe-desktop.png)](examples/release-readiness/wireframe.html) | [![Styled release mockup](examples/release-readiness/screenshots/mockup-desktop.png)](examples/release-readiness/mockup.html) | [![Interactive release prototype](examples/release-readiness/screenshots/prototype-desktop.png)](examples/release-readiness/prototype.html) |
+| Decide what belongs on the screen and compare structural directions. | Judge hierarchy, visual language, and responsive composition. | Test the blocked-to-ready flow, feedback, recovery, and product boundary. |
+
+Read the canonical Plannotator guide, [HTML wireframes and prototypes for coding agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents), for the review questions that belong at each stage.
 
 ## Install
+
+Install the collection:
 
 ```bash
 npx skills add plannotator/effective-html
 ```
 
-List the available entries:
+List or install individual skills:
 
 ```bash
 npx skills add plannotator/effective-html --list
+npx skills add plannotator/effective-html --skill html-wireframe
+npx skills add plannotator/effective-html --skill html-prototype
 ```
 
-Install only the canonical skill:
+Invoke a skill directly:
 
-```bash
-npx skills add plannotator/effective-html --skill html
+```text
+Use $html-wireframe to explore three responsive layouts for this checkout brief.
+
+Use $html-prototype in mockup mode to apply our existing design system to the approved wireframe.
+
+Use $html-prototype to make the checkout flow work, including validation, loading, failure, success, keyboard, and mobile states.
 ```
 
-Then ask naturally for an HTML artifact or invoke `$html` directly.
+Use `$html` when the request is broad or spans forms. It will route a clear wireframe, prototype, plan, or diagram request to the matching specialist when that skill is available.
 
-### As a Claude Code plugin
+### Claude Code plugin
 
 ```text
 /plugin marketplace add plannotator/effective-html
 /plugin install plannotator-effective-html@effective-html
 ```
 
-### As a Codex plugin
+### Codex plugin
 
 ```bash
 codex plugin marketplace add plannotator/effective-html
 codex plugin add plannotator-effective-html@effective-html
 ```
 
-## How `$html` works
+## How the skills work
 
-The skill first determines the audience, purpose, form, visual register, fidelity to the input, and useful interaction. It then loads only the guidance needed for the artifact:
+The skills separate creative freedom from reliability:
 
-- Documents and presentations
-- Interfaces and tools
-- Diagrams, architecture, and sequences
-- Charts and data
-- Creative direction when the user or project has not already supplied one
+- Visual direction comes from the conversation, project, audience, and subject.
+- Wireframes stay intentionally unfinished so reviewers focus on structure.
+- Mockups add a visual system without pretending to test behavior.
+- Prototypes implement one credible flow and its relevant states.
+- Plans preserve source commitments.
+- Diagrams choose a visual model and rendering method that fit the relationship being explained.
+- Every artifact is responsive, accessible, self-contained, and verified in a browser.
 
-The references teach techniques and decision-making, not a house style.
-
-## Migration from the old commands
-
-`html-diagram` and `html-plan` remain as temporary compatibility commands so existing installations and prompts continue to work. They are no longer separate design systems. New work should use `$html`; the aliases will remain through the `0.2.x` transition and may be removed in a later major release.
+Detailed guidance lives only where it is needed. The broad `html` skill keeps shared references for creative direction, documents, interfaces, diagrams, charts, and data. The specialist skills remain concise and independently usable.
 
 ## Repository shape
 
@@ -77,23 +91,37 @@ skills/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/
-│       ├── creative-direction.md
-│       ├── documents-and-presentations.md
-│       ├── interfaces.md
-│       ├── diagrams.md
-│       └── charts-and-data.md
-├── html-diagram/   # temporary compatibility alias
-└── html-plan/      # temporary compatibility alias
+├── html-wireframe/
+├── html-prototype/
+├── html-plan/
+└── html-diagram/
+
+examples/
+└── release-readiness/
+    ├── brief.md
+    ├── states.md
+    ├── wireframe.html
+    ├── mockup.html
+    ├── prototype.html
+    └── screenshots/
 ```
 
-This project was inspired by Thariq Shihipar's [The unreasonable effectiveness of HTML](https://thariqs.github.io/html-effectiveness). The original example gallery is no longer bundled or used as a default visual identity.
+This project was inspired by Thariq Shihipar's [The unreasonable effectiveness of HTML](https://thariqs.github.io/html-effectiveness).
 
-<br/>
 <p align="center">
-  <a href="https://github.com/plannotator/tot">
-    <img src="./use-tot.svg" width="300" alt="Share your HTML with tot">
+  <a href="https://github.com/backnotprop/plannotator">
+    <img src="./star-plannotator.svg" width="340" alt="Star Plannotator on GitHub">
   </a>
 </p>
 <p align="center">
-Create instant share links for your HTML files with <a href="https://github.com/plannotator/tot">tot</a> (optional).
+Render and annotate local HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a>.
+</p>
+
+<p align="center">
+  <a href="https://github.com/plannotator/tot">
+    <img src="./use-tot.svg" width="300" alt="Share HTML with tot">
+  </a>
+</p>
+<p align="center">
+Create a shareable link for an HTML file with <a href="https://github.com/plannotator/tot">tot</a>.
 </p>

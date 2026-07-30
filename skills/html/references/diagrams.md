@@ -20,10 +20,10 @@ Do not force several questions into one overloaded picture. Use coordinated view
 
 ## Choose the medium from the information
 
-- **HTML and CSS** — strong for labeled regions, aligned comparisons, grids, timelines, and diagrams whose text needs to reflow.
-- **SVG** — strong for crisp relational diagrams, custom paths, annotations, and interactive vector scenes.
-- **Canvas** — strong for dense, frequently changing, or generative graphics where thousands of DOM nodes would be wasteful.
-- **WebGL** — reserve for spatial, high-volume, or truly three-dimensional work that earns the added complexity.
+- **HTML and CSS:** strong for labeled regions, aligned comparisons, grids, timelines, and diagrams whose text needs to reflow.
+- **SVG:** strong for crisp relational diagrams, custom paths, annotations, and interactive vector scenes.
+- **Canvas:** strong for dense, frequently changing, or generative graphics where thousands of DOM nodes would be wasteful.
+- **WebGL:** reserve for spatial, high-volume, or truly three-dimensional work that earns the added complexity.
 
 Mix media when useful. A diagram can use semantic HTML controls and explanation around an SVG or Canvas stage.
 Style SVG elements through CSS classes and the artifact's chosen tokens when practical so the scene remains coherent across states and themes.
@@ -33,7 +33,7 @@ Style SVG elements through CSS classes and the artifact's chosen tokens when pra
 - Establish hierarchy with position, grouping, containment, scale, and whitespace before reaching for color.
 - Keep labels readable at the default view. Do not rotate important prose or place text over busy paths.
 - Route connectors around nodes and labels. Make direction unmistakable and distinguish different edge meanings.
-- Use boundaries to communicate ownership, trust, deployment, or responsibility—not as decoration.
+- Use boundaries to communicate ownership, trust, deployment, or responsibility, not as decoration.
 - Keep a stable overview while exposing detail on demand.
 - For architecture, show the concepts the audience uses. File names and implementation classes belong only when the question is specifically about code structure.
 

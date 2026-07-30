@@ -1,11 +1,23 @@
 ---
 name: html
-description: Create or redesign self-contained single-file HTML artifacts with a visual direction shaped by the user's brief, project, and subject. Use when the user wants a report, plan, explainer, landing page, presentation, prototype, dashboard, tool, diagram, architecture map, chart, or data visualization delivered as HTML, or asks to improve an existing HTML artifact. Do not use for ordinary application implementation when a standalone HTML file is not the deliverable.
+description: Create or redesign self-contained single-file HTML artifacts with a visual direction shaped by the user's brief, project, and subject. Use when the user needs the broad entry point for reports, explainers, landing pages, presentations, tools, mixed artifacts, and general requests where HTML is the deliverable. Route clear wireframe, prototype, mockup, plan, or diagram requests to the matching specialized skill when available. Do not use for ordinary application implementation when a standalone HTML file is not the deliverable.
 ---
 
 # HTML
 
 Build one self-contained HTML file that makes the subject clearer, easier to use, or easier to understand. The standard is consistent care, not a consistent look. Do not reproduce a house palette, typography stack, card system, or layout from prior runs.
+
+## Route the request first
+
+Use the narrowest skill that owns the main review question:
+
+- Read and follow [`html-wireframe`](../html-wireframe/SKILL.md) when structure, information hierarchy, navigation, or task flow is still unsettled. It should remain visibly low fidelity and may compare two or three layout directions.
+- Read and follow [`html-prototype`](../html-prototype/SKILL.md) when the user needs a polished mockup or a working interactive flow. A mockup is the static fidelity mode inside that skill.
+- Read and follow [`html-plan`](../html-plan/SKILL.md) when the artifact is primarily a plan, roadmap, implementation sequence, or rollout document whose source commitments must remain easy to verify.
+- Read and follow [`html-diagram`](../html-diagram/SKILL.md) when relationships, sequence, topology, state, hierarchy, or system behavior are the main content.
+- Continue with `html` for reports, explainers, presentations, landing pages, data stories, tools, and mixed artifacts that do not have a clearer owner.
+
+These sibling links are the nesting mechanism when the collection is installed together. If a specialized skill is unavailable, continue here and load the closest reference below. Do not make the user install another skill before completing the request.
 
 ## Read the room before designing
 
@@ -20,18 +32,18 @@ Authority runs in this order:
 
 Before coding, settle five things in working notes:
 
-- **Audience and job** — who will use this, and what should they understand or do?
-- **Form** — document, presentation, interface, diagram, or data visualization.
-- **Register** — quiet and workmanlike, polished and editorial, or intentionally expressive.
-- **Fidelity** — whether to preserve the user's structure and wording or synthesize more freely.
-- **Interaction** — what benefits from exploration, sequencing, filtering, or motion, if anything.
+- **Audience and job:** who will use this, and what should they understand or do?
+- **Form:** document, presentation, interface, diagram, or data visualization.
+- **Register:** quiet and workmanlike, polished and editorial, or intentionally expressive.
+- **Fidelity:** whether to preserve the user's structure and wording or synthesize more freely.
+- **Interaction:** what benefits from exploration, sequencing, filtering, or motion, if anything.
 
 If the project already answers the visual questions, follow it. Otherwise read [`references/creative-direction.md`](references/creative-direction.md) before choosing the palette, type, composition, or motion.
 
 ## Load only the guidance the artifact needs
 
 - For reports, briefs, plans, explainers, and decks, read [`references/documents-and-presentations.md`](references/documents-and-presentations.md).
-- For dashboards, prototypes, editors, calculators, and other tools, read [`references/interfaces.md`](references/interfaces.md).
+- For interfaces, calculators, and other tools that remain in this broad skill, read [`references/interfaces.md`](references/interfaces.md).
 - For architecture, process, sequence, state, hierarchy, or concept diagrams, read [`references/diagrams.md`](references/diagrams.md).
 - For quantitative charts, tables, metrics, or data stories, read [`references/charts-and-data.md`](references/charts-and-data.md).
 

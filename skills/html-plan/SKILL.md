@@ -1,19 +1,40 @@
 ---
 name: html-plan
-description: Legacy compatibility command for users who explicitly invoke html-plan. Use when the user types html-plan; complete the request as a pragmatic self-contained HTML plan, but use the html skill for new natural-language plan requests.
+description: Create a clear, self-contained HTML plan that preserves the source material while improving hierarchy, sequence, ownership, dependencies, and reviewability. Use when the user explicitly asks for html-plan or wants an implementation plan, roadmap, rollout, migration, project plan, or structured working document delivered as HTML.
 ---
 
-# HTML Plan (legacy alias)
+# HTML Plan
 
-This command remains temporarily so existing workflows do not break. Complete the user's request; do not stop merely to tell them the command moved.
+Turn source material into a plan people can inspect and act on. Preserve the user's scope, ordering, commitments, and terminology unless they ask for broader synthesis.
 
-If the `html` skill is installed, invoke it for this request and follow its Document guidance with high fidelity to the user's material. Otherwise:
+## Shape the document around the work
 
-- Preserve the user's scope, ordering, commitments, and terminology unless they ask for broader synthesis.
-- Improve grammar and structure without inflating the plan into a strategy document.
-- Match the user's or project's visual language; do not apply a default house style.
-- Use hierarchy, grouping, status, ownership, dependencies, and sequence only where the plan actually contains them.
-- Keep the design workmanlike unless the brief earns more treatment.
-- Deliver one responsive, accessible, self-contained HTML file and verify it at wide and narrow viewports.
+Read the conversation, project instructions, and supplied plan before designing. Match an existing design language when one is present. Otherwise derive a quiet, workmanlike direction from the audience and subject.
 
-After completing the artifact, mention that future requests can use `$html`.
+Decide what the plan actually needs:
+
+- phases or sequence;
+- status and decision points;
+- owners and collaborators;
+- dependencies and risks;
+- acceptance checks;
+- unresolved questions.
+
+Do not add a timeline, progress percentage, status badge, or dashboard summary unless the source supports it. Improve grammar and structure without inflating an implementation plan into a strategy document.
+
+## Preserve traceability
+
+- Keep source commitments recognizable.
+- Separate accepted decisions from assumptions and open questions.
+- Show sequence and dependency only where they are real.
+- Use tables for exact mappings, comparisons, or repeated fields.
+- Use a flow or timeline only when it makes order materially easier to understand.
+- Keep long prose readable instead of forcing every paragraph into a card.
+
+## Build and verify
+
+Deliver one responsive, accessible, self-contained HTML file. Use semantic headings, lists, tables, and landmarks. Keep essential CSS and JavaScript inline, avoid external services, and make any navigation or disclosure keyboard-operable.
+
+Inspect the result at wide and narrow widths. Check that no commitment disappeared, that stages remain in the intended order, that ownership and dependencies are legible, and that long content does not overflow.
+
+Return the absolute path and note any structural interpretation you introduced.

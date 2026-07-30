@@ -1,20 +1,43 @@
 ---
 name: html-diagram
-description: Legacy compatibility command for users who explicitly invoke html-diagram. Use when the user types html-diagram; complete the request as a self-contained HTML diagram, but use the html skill for new natural-language diagram and architecture requests.
+description: Create a self-contained HTML diagram whose layout, notation, and interaction clarify relationships, sequence, topology, state, hierarchy, or quantitative structure. Use when the user explicitly asks for html-diagram or wants an architecture map, sequence diagram, process flow, state machine, timeline, dependency graph, or system visualization delivered as HTML.
 ---
 
-# HTML Diagram (legacy alias)
+# HTML Diagram
 
-This command remains temporarily so existing workflows do not break. Complete the user's request; do not stop merely to tell them the command moved.
+Build the smallest visual model that makes the relationship easier to understand than prose alone. Match the notation and visual language to the user's project and subject. Do not force every topic into the same SVG boxes and arrows.
 
-If the `html` skill is installed, invoke it for this request and follow its Diagram guidance. Otherwise:
+## Choose the right model
 
-- Match the user's or project's visual language; do not apply a default house style.
-- Decide whether the subject calls for a topology, sequence, process, state, hierarchy, timeline, matrix, or quantitative view.
-- Choose HTML/CSS, SVG, Canvas, or WebGL according to the information rather than forcing every diagram into SVG.
-- Keep labels, grouping, connectors, direction, and hierarchy legible before adding interaction.
-- Add sequencing, filtering, path tracing, pan/zoom, or animation only when each helps the user answer a real question.
-- Make overlays dismissible, controls keyboard-accessible, and motion respectful of `prefers-reduced-motion`.
-- Deliver one self-contained HTML file and verify it at wide and narrow viewports.
+Identify the question the reader should answer, then select the form:
 
-After completing the artifact, mention that future requests can use `$html`.
+- topology for components and connections;
+- sequence for ordered messages over time;
+- process for steps, branches, and handoffs;
+- state for transitions and conditions;
+- hierarchy for containment or ownership;
+- timeline for change over time;
+- matrix for repeated relationships;
+- quantitative view when magnitude matters.
+
+Decide what must remain visible together and what can be revealed on demand. Use a simpler form when it carries the same meaning.
+
+## Choose the rendering method
+
+Use HTML and CSS, SVG, Canvas, or WebGL according to the information and scale. Do not use SVG merely because the output is a diagram.
+
+- Keep labels, grouping, direction, and connectors legible before adding interaction.
+- Use stable node positions when readers must compare states or steps.
+- Keep edge crossings and ambiguous arrowheads to a minimum.
+- Put intentionally broad canvases in a contained pan or scroll region.
+- Use legends only when notation is not self-explanatory.
+
+Add sequencing, filtering, path tracing, pan and zoom, or animation only when it helps answer the stated question. Keep overlays dismissible, controls keyboard-accessible, and motion compatible with `prefers-reduced-motion`.
+
+## Build and verify
+
+Deliver one self-contained HTML file with essential CSS and JavaScript inline. Require no build step or external service. Use accessible text alternatives and keep important meaning available without animation or color alone.
+
+Inspect the result at wide and narrow widths. Check label collisions, clipped nodes, edge routing, reading order, keyboard operation, overflow, and every interactive state.
+
+Return the absolute path, the diagram form chosen, and the main simplifications or assumptions.

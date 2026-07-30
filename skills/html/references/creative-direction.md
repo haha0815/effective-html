@@ -10,9 +10,9 @@ Start with the subject's own world: its materials, tools, environments, notation
 
 Choose a register that fits:
 
-- **Workmanlike** — quiet hierarchy, exact spacing, restrained color, direct language. Right for plans, internal briefs, operational reports, and many tools.
-- **Editorial** — stronger composition, distinctive type, art-directed pacing, and one memorable visual move. Right for explainers, launches, research stories, and presentations that need to travel.
-- **Expressive** — a more immersive visual or interactive idea whose execution is itself part of the message. Use rarely, when the subject truly benefits.
+- **Workmanlike:** quiet hierarchy, exact spacing, restrained color, direct language. Right for plans, internal briefs, operational reports, and many tools.
+- **Editorial:** stronger composition, distinctive type, art-directed pacing, and one memorable visual move. Right for explainers, launches, research stories, and presentations that need to travel.
+- **Expressive:** a more immersive visual or interactive idea whose execution is itself part of the message. Use rarely, when the subject truly benefits.
 
 Do not confuse restraint with neglect or expression with a theatrical hero. Finish the chosen register properly.
 
@@ -43,6 +43,6 @@ Color should be selected rather than inherited from habit. Neutrals are part of 
 
 ## Respect prior art
 
-When the user names a style or supplies a reference, follow it faithfully—even if it resembles a convention you would not choose yourself. When a project has tokens and components, use them before inventing replacements.
+When the user names a style or supplies a reference, follow it faithfully, even if it resembles a convention you would not choose yourself. When a project has tokens and components, use them before inventing replacements.
 
 Bundled guidance is for technique, not imitation. Never copy a previous artifact's palette, typography, or composition simply because it worked once.

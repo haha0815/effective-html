@@ -1,6 +1,6 @@
 # Interfaces and tools
 
-Read this for dashboards, prototypes, editors, calculators, control panels, and other artifacts people operate rather than read straight through.
+Read this for editors, calculators, control panels, and other broad HTML artifacts people operate rather than read straight through. Use `html-prototype` for a styled mockup or a bounded product flow when that skill is available.
 
 Lead with the current state and the next useful action. Organize the interface around the user's task, not the shape of the underlying data model.
 
@@ -12,6 +12,6 @@ Lead with the current state and the next useful action. Organize the interface a
 - Keep forms keyboard-friendly, labels explicit, targets comfortably sized, and destructive actions difficult to trigger accidentally.
 - Prefer a few strong regions over a uniform grid of interchangeable cards.
 
-Prototype real behavior when behavior is the question. A convincing static shell with dead controls is worse than a simpler interface whose important path works end to end.
+Implement the important path when behavior is part of the request. A convincing static shell with dead controls is worse than a simpler interface whose important path works end to end.
 
 On narrow screens, preserve the primary task. Reflow secondary panels, turn dense toolbars into deliberate controls, and contain wide data rather than shrinking it until it is illegible.
