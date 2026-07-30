@@ -14,6 +14,10 @@ Validated July 29, 2026, on macOS with Google Chrome.
 | Semantic checks | No duplicate IDs, missing ARIA references, or unnamed buttons |
 | Automated accessibility | No WCAG A or AA violations in the tested desktop and mobile views |
 
+The Guided gate wireframe was also tested as a click-through flow. Back, rerun, continue, and return actions work with pointer, `Enter`, and `Space`; each transition updates the current step and evidence, then moves focus to the new step heading.
+
+Invalid wireframe `?v=` values fall back to the Decision first direction. In the prototype, the skip link switches from Activity to Overview before it focuses the release checks.
+
 The prototype was tested in its blocked, dialog, loading, save-error, ready, production-boundary, empty-notes, and add-note states. The test covered:
 
 - disabled release gating;
@@ -47,6 +51,7 @@ The first clean mockup run exposed inherited dark text on a dark decision surfac
 ## Packaging
 
 - All five skills pass the platform skill validator.
+- Only `html` allows implicit invocation. The four direct-invocation specialists remain independently usable.
 - The repository passes strict Vercel, Claude, and Codex skill-format validation.
 - Every JSON manifest parses.
 - Claude Code's native marketplace validator passes.

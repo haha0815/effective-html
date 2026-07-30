@@ -1,6 +1,6 @@
 interface:
   display_name: "HTML Diagram"
-  short_description: "Explain systems and flows in HTML"
+  short_description: "Direct skill for HTML diagrams and flows"
   default_prompt: "Use $html-diagram to create a clear, self-contained HTML diagram for this system or flow."
 
 policy:

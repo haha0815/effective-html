@@ -53,7 +53,7 @@ Use $html-prototype in mockup mode to apply our existing design system to the ap
 Use $html-prototype to make the checkout flow work, including validation, loading, failure, success, keyboard, and mobile states.
 ```
 
-Use `$html` when the request is broad or spans forms. It will route a clear wireframe, prototype, plan, or diagram request to the matching specialist when that skill is available.
+Only `$html` is eligible for implicit invocation. Call a specialist directly when you know the artifact type, or use `$html` to route a broad request. Each specialist remains independently usable when invoked directly.
 
 ### Claude Code plugin
 

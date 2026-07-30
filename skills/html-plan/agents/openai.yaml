@@ -1,6 +1,6 @@
 interface:
   display_name: "HTML Plan"
-  short_description: "Turn working plans into clear HTML"
+  short_description: "Direct skill for clear HTML working plans"
   default_prompt: "Use $html-plan to turn this source material into a clear, self-contained HTML plan."
 
 policy:

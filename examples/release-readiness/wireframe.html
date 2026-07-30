@@ -313,15 +313,24 @@
         cursor: default;
       }
 
+      button.wire-button {
+        cursor: pointer;
+      }
+
       .wire-button.primary {
         background: var(--ink);
         color: var(--paper);
       }
 
-      .wire-button.disabled {
+      .wire-button.disabled,
+      .wire-button:disabled {
         border-color: var(--line);
         color: var(--muted);
         background: var(--wash);
+      }
+
+      button.wire-button:disabled {
+        cursor: default;
       }
 
       .note {
@@ -739,6 +748,86 @@
         </header>
       `;
 
+      let guidedStep = 3;
+      let guidedRerunRecorded = false;
+
+      function guidedGateContent() {
+        const views = {
+          2: {
+            note: "Step 2 of 6 · passing result",
+            title: "Review the Android smoke test",
+            description: "All required checkout cases passed on a Pixel 9 running Android 16.",
+            fields: [
+              ["Test run", "android-smoke-7742"],
+              ["Result", "42 passed · 0 failed"],
+              ["Coverage", "Sign in, browse, checkout, receipt"],
+              ["Evidence", "Build log, device video, transaction trace"],
+              ["Reviewer note", "No Android blocker found."],
+              ["Decision impact", "Android is ready for the release decision."]
+            ],
+            actions: '<button type="button" class="wire-button" data-gate-step="3">Return to iOS</button>'
+          },
+          3: {
+            note: guidedRerunRecorded ? "Step 3 of 6 · rerun recorded" : "Step 3 of 6 · blocking result",
+            title: "Review the iOS smoke test",
+            description: guidedRerunRecorded
+              ? "A passing rerun was recorded on the same device. Review the new evidence before continuing."
+              : "The checkout flow froze after Apple Pay confirmation on an iPhone 16 running iOS 19.",
+            fields: guidedRerunRecorded
+              ? [
+                  ["Test run", "ios-smoke-9874"],
+                  ["Result", "42 passed · 0 failed"],
+                  ["Rerun", "Same iPhone 16 · iOS 19"],
+                  ["Evidence", "Device video, Xcode log, transaction trace"],
+                  ["Reviewer note", "Passing rerun recorded after clearing the test account."],
+                  ["Decision impact", "The iOS blocker is cleared. Remaining review steps still apply."]
+                ]
+              : [
+                  ["Test run", "ios-smoke-9831"],
+                  ["Result", "41 passed · 1 failed"],
+                  ["Failure", "Checkout completion timeout after payment sheet closes"],
+                  ["Evidence", "Device video, Xcode log, transaction trace"],
+                  ["Reviewer note", "Reproduce on the same device before changing the release decision."],
+                  ["Decision impact", "Production release remains blocked."]
+                ],
+            actions: `
+              <button type="button" class="wire-button" data-gate-step="2">Back to Android</button>
+              <div class="button-row" style="margin:0">
+                <button type="button" class="wire-button primary" data-gate-rerun ${guidedRerunRecorded ? "disabled" : ""}>${guidedRerunRecorded ? "Rerun recorded" : "Record rerun"}</button>
+                <button type="button" class="wire-button" data-gate-step="4">Continue to API</button>
+              </div>
+            `
+          },
+          4: {
+            note: "Step 4 of 6 · passing result",
+            title: "Review API compatibility",
+            description: "The mobile release remains compatible with the current production API contract.",
+            fields: [
+              ["Test run", "contract-suite-186"],
+              ["Result", "186 passed · 0 failed"],
+              ["API version", "2026-07-15"],
+              ["Evidence", "Contract report, schema diff"],
+              ["Reviewer note", "No breaking response changes found."],
+              ["Decision impact", "API compatibility is ready for the release decision."]
+            ],
+            actions: '<button type="button" class="wire-button" data-gate-step="3">Return to iOS</button>'
+          }
+        };
+        const view = views[guidedStep] || views[3];
+
+        return `
+          <div class="gate-intro">
+            <span class="wire-note">${view.note}</span>
+            <h2 id="gate-title" tabindex="-1">${view.title}</h2>
+            <p>${view.description}</p>
+          </div>
+          <div class="gate-detail">
+            ${view.fields.map(([label, value]) => `<div class="field"><strong>${label}</strong><span>${value}</span></div>`).join("")}
+          </div>
+          <div class="gate-actions">${view.actions}</div>
+        `;
+      }
+
       const variants = [
         () => `
           <main class="page direction-one">
@@ -824,35 +913,12 @@
             ${releaseBar}
             <div class="gate-layout">
               <ol class="step-nav" aria-label="Release review steps">
-                <li><span class="step-number">1</span><span>Identity</span></li>
-                <li><span class="step-number">2</span><span>Android</span></li>
-                <li aria-current="step"><span class="step-number">3</span><span>iOS</span></li>
-                <li><span class="step-number">4</span><span>API</span></li>
-                <li><span class="step-number">5</span><span>Privacy</span></li>
-                <li><span class="step-number">6</span><span>Decision</span></li>
+                ${["Identity", "Android", "iOS", "API", "Privacy", "Decision"].map((label, index) => {
+                  const step = index + 1;
+                  return `<li ${step === guidedStep ? 'aria-current="step"' : ""}><span class="step-number">${step}</span><span>${label}</span></li>`;
+                }).join("")}
               </ol>
-              <section class="gate-card">
-                <div class="gate-intro">
-                  <span class="wire-note">Step 3 of 6 · blocking result</span>
-                  <h2>Review the iOS smoke test</h2>
-                  <p>The checkout flow froze after Apple Pay confirmation on an iPhone 16 running iOS 19.</p>
-                </div>
-                <div class="gate-detail">
-                  <div class="field"><strong>Test run</strong><span>ios-smoke-9831</span></div>
-                  <div class="field"><strong>Result</strong><span>41 passed · 1 failed</span></div>
-                  <div class="field"><strong>Failure</strong><span>Checkout completion timeout after payment sheet closes</span></div>
-                  <div class="field"><strong>Evidence</strong><span>Device video, Xcode log, transaction trace</span></div>
-                  <div class="field"><strong>Reviewer note</strong><span>Reproduce on the same device before changing the release decision.</span></div>
-                  <div class="field"><strong>Decision impact</strong><span>Production release remains blocked.</span></div>
-                </div>
-                <div class="gate-actions">
-                  <span class="wire-button">Back to Android</span>
-                  <div class="button-row" style="margin:0">
-                    <span class="wire-button primary">Record rerun</span>
-                    <span class="wire-button">Continue to API</span>
-                  </div>
-                </div>
-              </section>
+              <section class="gate-card" aria-labelledby="gate-title">${guidedGateContent()}</section>
             </div>
           </main>
         `
@@ -871,29 +937,42 @@
         highlight.style.transform = `translateX(${el.offsetLeft}px)`;
       }
 
-      function mount(i) {
+      function mount(i, focusSelector) {
         stage.innerHTML = '';
-        requestAnimationFrame(() => { stage.innerHTML = variants[i](); });
+        requestAnimationFrame(() => {
+          stage.innerHTML = variants[i]();
+          if (focusSelector) stage.querySelector(focusSelector)?.focus();
+        });
       }
 
       function setActive(i) {
-        if (i < 0 || i >= variants.length) return;
-        current = i;
+        const next = Number.isInteger(i) && i >= 0 && i < variants.length ? i : 0;
+        current = next;
         items.forEach((el, j) => {
-          el.toggleAttribute('data-active', j === i);
-          if (j === i) el.setAttribute('aria-current', 'true');
+          el.toggleAttribute('data-active', j === next);
+          if (j === next) el.setAttribute('aria-current', 'true');
           else el.removeAttribute('aria-current');
         });
         moveHighlight();
         const url = new URL(location);
-        url.searchParams.set('v', i + 1);
+        url.searchParams.set('v', next + 1);
         history.replaceState(null, '', url);
-        mount(i);
+        mount(next);
       }
 
       items.forEach((el, i) => el.addEventListener('click', () => setActive(i)));
       replay?.addEventListener('click', () => mount(current));
       window.addEventListener('resize', moveHighlight);
+
+      stage.addEventListener('click', (event) => {
+        const stepButton = event.target.closest('[data-gate-step]');
+        const rerunButton = event.target.closest('[data-gate-rerun]');
+        if (current !== 2 || (!stepButton && !rerunButton)) return;
+
+        if (stepButton) guidedStep = Number(stepButton.dataset.gateStep);
+        if (rerunButton) guidedRerunRecorded = true;
+        mount(current, '#gate-title');
+      });
 
       document.addEventListener('keydown', (e) => {
         if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable) return;
@@ -905,7 +984,9 @@
         else if (e.key === 'r' || e.key === 'R') mount(current);
       });
 
-      setActive((parseInt(new URLSearchParams(location.search).get('v'), 10) || 1) - 1);
+      const requestedVariant = new URLSearchParams(location.search).get('v');
+      const initialVariant = /^[1-3]$/.test(requestedVariant || '') ? Number(requestedVariant) - 1 : 0;
+      setActive(initialVariant);
       requestAnimationFrame(() => requestAnimationFrame(() => picker.setAttribute('data-ready', '')));
     </script>
   </body>

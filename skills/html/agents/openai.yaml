@@ -1,6 +1,6 @@
 interface:
   display_name: "HTML"
-  short_description: "Route and create standalone HTML artifacts"
+  short_description: "Implicit router for standalone HTML artifacts"
   default_prompt: "Use $html to choose the right Effective HTML workflow and create a self-contained artifact from this brief."
 
 policy:

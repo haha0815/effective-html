@@ -1199,7 +1199,7 @@
     </style>
   </head>
   <body data-release-state="blocked">
-    <a class="skip-link" href="#checks">Skip to release checks</a>
+    <a class="skip-link" id="skip-to-checks" href="#checks">Skip to release checks</a>
     <div class="review-banner">Interactive prototype · local sample data</div>
     <div id="status-announcer" class="visually-hidden" aria-live="polite"></div>
 
@@ -1239,7 +1239,7 @@
         </section>
 
         <div class="workspace">
-          <section class="main-column" id="checks" aria-labelledby="checks-title">
+          <section class="main-column" id="checks" aria-labelledby="checks-title" tabindex="-1">
             <div class="section-title">
               <h2 id="checks-title">Required checks</h2>
               <p id="checks-count">3 of 4 passed · all evidence shown</p>
@@ -1412,8 +1412,11 @@
       const body = document.body;
       const announcer = document.getElementById('status-announcer');
       const tabs = [...document.querySelectorAll('[role="tab"]')];
+      const overviewTab = document.getElementById('overview-tab');
       const overviewView = document.getElementById('overview-view');
       const activityView = document.getElementById('activity-view');
+      const skipToChecks = document.getElementById('skip-to-checks');
+      const checks = document.getElementById('checks');
       const rerunDialog = document.getElementById('rerun-dialog');
       const boundaryDialog = document.getElementById('boundary-dialog');
       const openRerun = document.getElementById('open-rerun');
@@ -1486,6 +1489,13 @@
           if (event.key === 'End') nextIndex = tabs.length - 1;
           selectTab(tabs[nextIndex]);
         });
+      });
+
+      skipToChecks.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (overviewView.hidden) selectTab(overviewTab);
+        checks.focus();
+        history.replaceState(null, '', '#checks');
       });
 
       function formIsValid() {

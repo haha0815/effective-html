@@ -1,6 +1,6 @@
 interface:
   display_name: "HTML Prototype"
-  short_description: "Build polished mockups and prototypes"
+  short_description: "Direct skill for HTML mockups and prototypes"
   default_prompt: "Use $html-prototype to build a responsive HTML mockup or working prototype for this product brief."
 
 policy:
