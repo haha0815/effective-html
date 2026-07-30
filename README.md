@@ -6,6 +6,15 @@ The collection is opinionated about clarity, accessibility, and verification. It
 
 https://github.com/user-attachments/assets/24306977-7f30-44c9-9bff-55f901d557b0
 
+<p align="center">
+  <a href="https://github.com/backnotprop/plannotator">
+    <img src="./star-plannotator.svg" width="340" alt="Star Plannotator on GitHub">
+  </a>
+</p>
+<p align="center">
+Render and annotate local HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a>.
+</p>
+
 ## Choose a skill
 
 | Skill | Use it for |
@@ -103,15 +112,6 @@ examples/
 ```
 
 This project was inspired by Thariq Shihipar's [The unreasonable effectiveness of HTML](https://thariqs.github.io/html-effectiveness).
-
-<p align="center">
-  <a href="https://github.com/backnotprop/plannotator">
-    <img src="./star-plannotator.svg" width="340" alt="Star Plannotator on GitHub">
-  </a>
-</p>
-<p align="center">
-Render and annotate local HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a>.
-</p>
 
 <p align="center">
   <a href="https://github.com/plannotator/tot">
