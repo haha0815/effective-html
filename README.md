@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/effective-html-banner.png" width="1280" alt="Effective HTML by Plannotator — HTML wireframes, mockups, prototypes, charts, and diagrams">
+</p>
+
 # Effective HTML
 
 Five focused skills for creating useful, self-contained HTML artifacts, from low-fidelity wireframes to working interactive prototypes.
