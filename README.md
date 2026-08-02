@@ -6,6 +6,8 @@
 
 Focused agent skills for creating useful, self-contained HTML artifacts, from low-fidelity wireframes to working interactive prototypes.
 
+Read [HTML Wireframes and Prototypes for Coding Agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents) for a practical guide to choosing the right level of fidelity, giving an agent useful context, and reviewing the result.
+
 ## Fat artifacts + fat context
 
 A **fat artifact** carries the working detail: structure, visuals, states,
