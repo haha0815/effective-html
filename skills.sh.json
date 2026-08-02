@@ -4,9 +4,11 @@
   "groupings": [
     {
       "title": "Effective HTML",
-      "description": "Skills for generating pragmatic HTML diagrams and plans.",
+      "description": "Focused skills for self-contained HTML artifacts, wireframes, prototypes, plans, and diagrams.",
       "skills": [
         "html",
+        "html-wireframe",
+        "html-prototype",
         "html-diagram",
         "html-plan"
       ]
