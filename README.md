@@ -4,9 +4,19 @@
 
 # Effective HTML
 
-Five focused skills for creating useful, self-contained HTML artifacts, from low-fidelity wireframes to working interactive prototypes.
+Focused agent skills for creating useful, self-contained HTML artifacts, from low-fidelity wireframes to working interactive prototypes.
 
-The collection is opinionated about clarity, accessibility, and verification. It is not tied to one palette, typography stack, component system, or diagram style. Each artifact follows the user's direction first, then the project's established language, then the subject itself.
+## Fat artifacts + fat context
+
+Modern models can do a lot. Give them plenty of useful references and use
+artifacts to show what you mean. HTML can visualize almost anything, often more
+clearly than a wall of text. Your prompt can simply point to the artifacts,
+repositories, and folders that carry the context.
+
+> [!NOTE]
+> You can use this repo without installing anything. Treat it as a reference
+> first and an installable skill collection second. See the
+> [Effective HTML guide](https://www.effectivehtml.com/).
 
 https://github.com/user-attachments/assets/24306977-7f30-44c9-9bff-55f901d557b0
 
@@ -19,30 +29,26 @@ https://github.com/user-attachments/assets/24306977-7f30-44c9-9bff-55f901d557b0
 Render and annotate local HTML with <a href="https://github.com/backnotprop/plannotator">Plannotator</a>.
 </p>
 
-## Choose a skill
+## Skill references
+
+The repo includes six optional skills for pragmatic visual artifacts.
 
 | Skill | Use it for |
 | --- | --- |
 | [`html`](skills/html/SKILL.md) | Broad HTML requests, mixed artifacts, reports, explainers, presentations, landing pages, tools, and routing to a specialist |
+| [`design-artifact`](skills/design-artifact/SKILL.md) | Subject-specific creative direction for any HTML artifact without imposing a reusable house style |
 | [`html-wireframe`](skills/html-wireframe/SKILL.md) | Low-fidelity layout directions that test content, hierarchy, navigation, flows, and responsive structure |
 | [`html-prototype`](skills/html-prototype/SKILL.md) | Working prototypes with realistic states, interaction, keyboard support, and responsive behavior |
 | [`html-plan`](skills/html-plan/SKILL.md) | Plans, roadmaps, rollouts, and implementation sequences that preserve source commitments |
 | [`html-diagram`](skills/html-diagram/SKILL.md) | Architecture, sequence, process, state, hierarchy, timeline, and system diagrams |
 
-## One brief, two stages
 
-The [release-readiness example](examples/release-readiness/README.md) carries the same product brief from structural exploration to working interaction. Both artifacts are standalone HTML files that open without build tooling.
 
-| Wireframe | Prototype |
-| --- | --- |
-| [![Low-fidelity release wireframe](examples/release-readiness/screenshots/wireframe-desktop.png)](examples/release-readiness/wireframe.html) | [![Interactive release prototype](examples/release-readiness/screenshots/prototype-desktop.png)](examples/release-readiness/prototype.html) |
-| Decide what belongs on the screen and compare structural directions. | Test the blocked-to-ready flow, feedback, recovery, and product boundary. |
-
-Read the canonical Plannotator guide, [HTML wireframes and prototypes for coding agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents), for the review questions that belong at each stage.
 
 ## Install
 
-Install the collection:
+Install the collection when you want these references available to your agent as
+reusable workflows:
 
 ```bash
 npx skills add plannotator/effective-html
@@ -52,19 +58,10 @@ List or install individual skills:
 
 ```bash
 npx skills add plannotator/effective-html --list
+npx skills add plannotator/effective-html --skill design-artifact
 npx skills add plannotator/effective-html --skill html-wireframe
 npx skills add plannotator/effective-html --skill html-prototype
 ```
-
-Invoke a skill directly:
-
-```text
-Use $html-wireframe to explore three responsive layouts for this checkout brief.
-
-Use $html-prototype to make the checkout flow work, including validation, loading, failure, success, keyboard, and mobile states.
-```
-
-Only `$html` is eligible for implicit invocation. Call a specialist directly when you know the artifact type, or use `$html` to route a broad request. Each specialist remains independently usable when invoked directly.
 
 ### Claude Code plugin
 
@@ -85,35 +82,14 @@ codex plugin add plannotator-effective-html@effective-html
 The skills separate creative freedom from reliability:
 
 - Visual direction comes from the conversation, project, audience, and subject.
+- `design-artifact` provides a reusable design process without prescribing a reusable look.
 - Wireframes stay intentionally unfinished so reviewers focus on structure.
 - Prototypes implement one credible flow and its relevant states.
 - Plans preserve source commitments.
 - Diagrams choose a visual model and rendering method that fit the relationship being explained.
 - Every artifact is responsive, accessible, self-contained, and verified in a browser.
 
-Detailed guidance lives only where it is needed. The broad `html` skill keeps shared references for creative direction, documents, interfaces, diagrams, charts, and data. The specialist skills remain concise and independently usable.
-
-## Repository shape
-
-```text
-skills/
-├── html/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/
-├── html-wireframe/
-├── html-prototype/
-├── html-plan/
-└── html-diagram/
-
-examples/
-└── release-readiness/
-    ├── brief.md
-    ├── states.md
-    ├── wireframe.html
-    ├── prototype.html
-    └── screenshots/
-```
+Detailed guidance lives only where it is needed. The broad `html` skill routes the work, `design-artifact` supplies optional creative direction, and specialist skills own fidelity and behavior. Each skill remains independently usable.
 
 This project was inspired by Thariq Shihipar's [The unreasonable effectiveness of HTML](https://thariqs.github.io/html-effectiveness).
 
