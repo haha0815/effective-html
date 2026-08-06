@@ -528,12 +528,12 @@ export function CatalogExplorer() {
               <h2>
                 {collection === "design"
                   ? "Wireframes and mockups."
-                  : "Built here, open in place."}
+                  : "Wireframes, mockups, and prototypes."}
               </h2>
               <p>
                 {collection === "design"
                   ? "Open the HTML, resize it, and inspect the source."
-                  : "First-party wireframes, mockups, prototypes, and interface studies. Open the HTML, resize it, and inspect the source."}
+                  : "HTML examples made for this catalog. Open them, resize them, and inspect the source."}
               </p>
             </header>
             <div className={styles.nativeExamples}>

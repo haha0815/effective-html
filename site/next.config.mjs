@@ -6,6 +6,26 @@ const config = {
   async rewrites() {
     return [
       {
+        source: "/index.html.md",
+        destination: "/index.md",
+      },
+      {
+        source: "/catalog/index.html.md",
+        destination: "/catalog.md",
+      },
+      {
+        source: "/catalog/folio.md",
+        destination: "/catalog.md",
+      },
+      {
+        source: "/examples/index.html.md",
+        destination: "/examples.md",
+      },
+      {
+        source: "/docs/index.html.md",
+        destination: "/docs.md",
+      },
+      {
         source: "/docs.md",
         destination: "/llms.mdx/docs",
       },

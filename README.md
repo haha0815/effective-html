@@ -42,8 +42,7 @@ The repo includes six optional skills for pragmatic visual artifacts.
 | [`html-plan`](skills/html-plan/SKILL.md) | Plans, roadmaps, rollouts, and implementation sequences that preserve source commitments |
 | [`html-diagram`](skills/html-diagram/SKILL.md) | Architecture, sequence, process, state, hierarchy, timeline, and system diagrams |
 
-
-
+Practical guide: [HTML Wireframes and Prototypes for Coding Agents](https://docs.plannotator.ai/learn/code-context/html-wireframes-and-prototypes-for-coding-agents).
 
 ## Install
 

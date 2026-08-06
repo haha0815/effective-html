@@ -1,3 +1,4 @@
+import { getGuideMarkdown, markdownResponse } from "@/lib/llm-content";
 import { source } from "@/lib/source";
 import { notFound } from "next/navigation";
 
@@ -15,13 +16,7 @@ export async function GET(_request: Request, { params }: RouteProps) {
 
   if (!page) notFound();
 
-  const markdown = await page.data.getText("processed");
-
-  return new Response(`# ${page.data.title}\n\n${markdown}`, {
-    headers: {
-      "Content-Type": "text/markdown; charset=utf-8",
-    },
-  });
+  return markdownResponse(await getGuideMarkdown(page));
 }
 
 /** Return every guide slug for static generation. */
